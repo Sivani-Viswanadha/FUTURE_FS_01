@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V. Sai Sivani — Computer Science Student & Developer</title>
+  <meta name="description" content="Portfolio of V. Sai Sivani, Computer Science student passionate about software development, problem solving, and building clean digital experiences." />
+  <meta name="author" content="V. Sai Sivani" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="V. Sai Sivani — Portfolio" />
+  <meta property="og:description" content="Computer Science student passionate about software development and problem solving." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===================== NAVIGATION ===================== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <span class="logo-mark">S</span><span class="logo-text">Sai Sivani</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+    <div class="container hero-content reveal">
+      <p class="eyebrow">Hello, I'm</p>
+      <h1 class="hero-title">V. Sai Sivani</h1>
+      <p class="hero-subtitle">Turning Ideas Into Code</p>
+      <p class="hero-desc">
+        Computer Science student passionate about software development,
+        problem solving, and building clean digital experiences.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="Sivani_Resume.pdf" class="btn btn-outline" download="Sivani_Resume.pdf">Download Resume</a>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">01 — About</span>
+        <h2 class="section-title">A little about me</h2>
+      </div>
+      <div class="about-card reveal">
+        <p>
+          I am a passionate Computer Science student interested in software development
+          and problem solving. I enjoy building clean and user-friendly applications
+          while continuously learning new technologies. I aim to become a skilled
+          software developer capable of building impactful and efficient digital solutions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">02 — Skills</span>
+        <h2 class="section-title">Tools & Strengths</h2>
+      </div>
+
+      <h3 class="subhead reveal">Technical Skills</h3>
+      <div class="skills-grid reveal">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Python</span>
+        <span class="skill skill-featured">Java <em>★</em></span>
+        <span class="skill">C</span>
+        <span class="skill skill-featured">SQL <em>★</em></span>
+        <span class="skill">Data Structures</span>
+      </div>
+
+      <h3 class="subhead reveal" style="margin-top:3rem;">Soft Skills</h3>
+      <div class="skills-grid reveal">
+        <span class="skill soft">Problem Solving</span>
+        <span class="skill soft">Communication</span>
+        <span class="skill soft">Analytical Thinking</span>
+        <span class="skill soft">Quick Learner</span>
+        <span class="skill soft">Team Collaboration</span>
+        <span class="skill soft">Time Management</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">03 — Projects</span>
+        <h2 class="section-title">Selected Work</h2>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-glow"></div>
+          <h3>Student Data Management System</h3>
+          <p>
+            Designed and developed a file-based student record management system using Python.
+            Implemented CRUD operations using CSV file handling. Applied object-oriented
+            programming principles for modular design and improved data retrieval efficiency
+            through structured file operations.
+          </p>
+          <div class="tech-badges">
+            <span>Python</span>
+            <span>OOP</span>
+            <span>CSV</span>
+          </div>
+          <a href="https://github.com/sivani-viswanadha" target="_blank" rel="noopener" class="project-link">
+            View on GitHub →
+          </a>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-glow"></div>
+          <h3>Word Counter</h3>
+          <p>
+            Counts and returns the number of times a word occurred in a given text.
+            Implemented collision resolution techniques for handling hash conflicts
+            efficiently using hash tables.
+          </p>
+          <div class="tech-badges">
+            <span>C</span>
+            <span>Hashing</span>
+            <span>DSA</span>
+          </div>
+          <a href="https://github.com/sivani-viswanadha" target="_blank" rel="noopener" class="project-link">
+            View on GitHub →
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EDUCATION ===================== -->
+  <section class="section section-alt" id="education">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">04 — Education</span>
+        <h2 class="section-title">Academic Journey</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3>SRKR Engineering College</h3>
+              <span class="timeline-date">2024 – 2028</span>
+            </div>
+            <p>Bachelor of Technology — Computer Science & Engineering</p>
+            <div class="cgpa">
+              <span>CGPA</span>
+              <strong>9.04</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CERTIFICATIONS ===================== -->
+  <section class="section" id="certifications">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">05 — Certifications</span>
+        <h2 class="section-title">Achievements</h2>
+      </div>
+
+      <div class="cert-grid">
+        <div class="cert-card reveal">
+          <div class="cert-icon">★</div>
+          <h3>SQL Certification</h3>
+          <p>GeeksforGeeks SkillUp</p>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon">⚛</div>
+          <h3>Introduction to Quantum Computing</h3>
+          <p>NPTEL</p>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon">🎤</div>
+          <h3>TEDx SRKR</h3>
+          <p>Active Member — Organising Team</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">06 — Contact</span>
+        <h2 class="section-title">Let's Connect</h2>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="contact-info reveal">
+          <a class="contact-card" href="mailto:sivaniviswanadha@gmail.com">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">sivaniviswanadha@gmail.com</span>
+          </a>
+          <a class="contact-card" href="https://www.linkedin.com/in/sivani-viswanadha-368168338" target="_blank" rel="noopener">
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">/in/sivani-viswanadha</span>
+          </a>
+          <a class="contact-card" href="https://github.com/sivani-viswanadha" target="_blank" rel="noopener">
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">@sivani-viswanadha</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-quote">"Code. Learn. Build. Repeat."</p>
+      <div class="footer-socials">
+        <a href="mailto:sivaniviswanadha@gmail.com" aria-label="Email">✉</a>
+        <a href="https://www.linkedin.com/in/sivani-viswanadha-368168338" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a href="https://github.com/sivani-viswanadha" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+      </div>
+      <p class="footer-copy">© <span id="year"></span> V. Sai Sivani. All rights reserved.</p>
+    </div>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
