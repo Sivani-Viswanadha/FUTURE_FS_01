@@ -36,6 +36,7 @@
         <a href="#education">Education</a>
         <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
+        <a href="#other">Other</a>
       </nav>
 
       <div class="nav-actions">
@@ -252,6 +253,33 @@
           </a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== OTHER (MESSAGE) ===================== -->
+  <section class="section" id="other">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">07 — Other</span>
+        <h2 class="section-title">Send a Message</h2>
+      </div>
+
+      <form class="contact-form reveal" id="messageForm" novalidate>
+        <div class="field">
+          <label for="mf-name">Name</label>
+          <input type="text" id="mf-name" name="name" maxlength="100" required />
+        </div>
+        <div class="field">
+          <label for="mf-email">Email</label>
+          <input type="email" id="mf-email" name="email" maxlength="255" required />
+        </div>
+        <div class="field">
+          <label for="mf-message">Message</label>
+          <textarea id="mf-message" name="message" rows="5" maxlength="1000" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
