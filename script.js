@@ -75,7 +75,7 @@ document.querySelectorAll('.project-card').forEach(card => {
 // ---------- Message form (backend API) ----------
 // The form sends a POST request to our Express backend (backend/server.js).
 // When deploying, change API_URL to your deployed backend URL.
-const API_URL = 'http://localhost:3000/contact';
+const API_URL = 'https://future-fs-01-akj4.onrender.com';
 
 const messageForm = document.getElementById('messageForm');
 const formStatus = document.getElementById('formStatus');

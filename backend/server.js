@@ -31,7 +31,9 @@ const app = express();
 // 4) Middleware
 //    - cors()        : allow the frontend (running on a different port/file) to call this API
 //    - express.json(): automatically parse incoming JSON request bodies
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 
 // 5) A simple health-check route so you can test the server is alive in the browser
