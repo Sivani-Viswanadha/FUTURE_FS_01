@@ -1,6 +1,6 @@
 /* ============================================
    V. Sai Sivani — Portfolio Interactions
-   ============================================ */
+============================================ */
 
 // ---------- Theme Toggle ----------
 const themeToggle = document.getElementById('themeToggle');
@@ -13,6 +13,7 @@ root.setAttribute('data-theme', savedTheme);
 themeToggle.addEventListener('click', () => {
   const current = root.getAttribute('data-theme');
   const next = current === 'dark' ? 'light' : 'dark';
+
   root.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
 });
@@ -34,104 +35,193 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
-// ---------- Navbar scroll state ----------
+// ---------- Navbar Scroll State ----------
 const navbar = document.getElementById('navbar');
 const backToTop = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY > 30;
+
   navbar.classList.toggle('scrolled', scrolled);
-  backToTop.classList.toggle('visible', window.scrollY > 500);
+  backToTop.classList.toggle(
+    'visible',
+    window.scrollY > 500
+  );
 });
 
 backToTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 });
 
-// ---------- Reveal on scroll ----------
-const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+// ---------- Reveal on Scroll ----------
+const revealEls =
+  document.querySelectorAll('.reveal');
+
+const observer =
+  new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            'visible'
+          );
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin:
+        '0px 0px -60px 0px',
     }
+  );
+
+revealEls.forEach((el) =>
+  observer.observe(el)
+);
+
+// ---------- Project Card Glow Follow ----------
+document
+  .querySelectorAll('.project-card')
+  .forEach((card) => {
+    card.addEventListener(
+      'mousemove',
+      (e) => {
+        const rect =
+          card.getBoundingClientRect();
+
+        const x =
+          ((e.clientX - rect.left) /
+            rect.width) *
+          100;
+
+        const y =
+          ((e.clientY - rect.top) /
+            rect.height) *
+          100;
+
+        card.style.setProperty(
+          '--mx',
+          x + '%'
+        );
+
+        card.style.setProperty(
+          '--my',
+          y + '%'
+        );
+      }
+    );
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
-revealEls.forEach(el => observer.observe(el));
+// ============================================
+// Contact Form — EmailJS
+// ============================================
 
-// ---------- Project card glow follow ----------
-document.querySelectorAll('.project-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    card.style.setProperty('--mx', x + '%');
-    card.style.setProperty('--my', y + '%');
-  });
-});
+// Initialize EmailJS
+emailjs.init('qTqa8M_dvV8umBuyv');
 
-// ---------- Message form (backend API) ----------
-// The form sends a POST request to our Express backend (backend/server.js).
-// When deploying, change API_URL to your deployed backend URL.
-const API_URL = 'https://future-fs-01-1-5hws.onrender.com/contact';
+const messageForm =
+  document.getElementById(
+    'messageForm'
+  );
 
-const messageForm = document.getElementById('messageForm');
-const formStatus = document.getElementById('formStatus');
+const formStatus =
+  document.getElementById(
+    'formStatus'
+  );
 
 if (messageForm) {
-  messageForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // stop the browser from reloading the page
+  messageForm.addEventListener(
+    'submit',
+    async (e) => {
+      e.preventDefault();
 
-    const name = messageForm.name.value.trim();
-    const email = messageForm.email.value.trim();
-    const message = messageForm.message.value.trim();
+      const name =
+        messageForm.name.value.trim();
 
-    // Client-side validation (the server validates again, just in case)
-    if (!name || !email || !message) {
-      formStatus.textContent = 'Please fill out all fields.';
-      return;
-    }
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRe.test(email)) {
-      formStatus.textContent = 'Please enter a valid email address.';
-      return;
-    }
+      const email =
+        messageForm.email.value.trim();
 
-    const submitBtn = messageForm.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.textContent;
+      const message =
+        messageForm.message.value.trim();
 
-    try {
-      // Loading state
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      formStatus.textContent = 'Sending...';
-
-      // Send the data to the backend as JSON
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
-      });
-
-      const data = await response.json().catch(() => ({}));
-
-      if (response.ok && data.success) {
-        formStatus.textContent = 'Message sent successfully!';
-        messageForm.reset();
-      } else {
-        formStatus.textContent = 'Failed to send message.';
+      // Validation
+      if (
+        !name ||
+        !email ||
+        !message
+      ) {
+        formStatus.textContent =
+          'Please fill out all fields.';
+        return;
       }
-    } catch (err) {
-      // Network error / backend not running
-      formStatus.textContent = 'Failed to send message.';
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalBtnText;
+
+      const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (
+        !emailRegex.test(email)
+      ) {
+        formStatus.textContent =
+          'Please enter a valid email address.';
+        return;
+      }
+
+      const submitBtn =
+        messageForm.querySelector(
+          'button[type="submit"]'
+        );
+
+      const originalBtnText =
+        submitBtn.textContent;
+
+      try {
+        // Loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent =
+          'Sending...';
+
+        formStatus.textContent =
+          'Sending...';
+
+        // Send email via EmailJS
+        await emailjs.send(
+          'service_k8mhft6',
+          'template_xzhjy3j',
+          {
+            name: name,
+            email: email,
+            message: message,
+          }
+        );
+
+        formStatus.textContent =
+          'Message sent successfully!';
+
+        messageForm.reset();
+
+      } catch (err) {
+        console.error(
+          'EmailJS Error:',
+          err
+        );
+
+        formStatus.textContent =
+          'Failed to send message.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent =
+          originalBtnText;
+      }
     }
-  });
+  );
 }
 
 // ---------- Year ----------
-document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById(
+  'year'
+).textContent =
+  new Date().getFullYear();
